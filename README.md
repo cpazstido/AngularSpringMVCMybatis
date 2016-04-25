@@ -1,2 +1,0 @@
-# AngularSpringMVCMybatis
-使用AngularJS+SpringMVC+Mybatis搭建web项目模板
