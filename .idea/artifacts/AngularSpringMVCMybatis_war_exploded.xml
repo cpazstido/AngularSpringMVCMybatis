@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Angular_SpringMVC_Mybatis:war exploded">
-    <output-path>$PROJECT_DIR$/target/AngularSpringmvcMybatis</output-path>
+  <artifact type="exploded-war" name="AngularSpringMVCMybatis:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/AngularSpringMVCMybatis_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="Angular_SpringMVC_Mybatis" />
+          <element id="module-output" name="AngularSpringMVCMybatis" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.0.6.RELEASE" />
@@ -26,7 +26,6 @@
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.6" />
           <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
-          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:3.0-alpha-1" />
           <element id="library" level="project" name="Maven: asm:asm:3.3" />
           <element id="library" level="project" name="Maven: asm:asm-commons:3.3" />
           <element id="library" level="project" name="Maven: asm:asm-tree:3.3" />
@@ -40,10 +39,7 @@
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.12" />
         </element>
       </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/AngularSpringmvcMybatis/META-INF/MANIFEST.MF" />
-      </element>
-      <element id="javaee-facet-resources" facet="Angular_SpringMVC_Mybatis/web/Web" />
+      <element id="javaee-facet-resources" facet="AngularSpringMVCMybatis/web/Web" />
     </root>
   </artifact>
 </component>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Angular_SpringMVC_Mybatis.iml" filepath="$PROJECT_DIR$/Angular_SpringMVC_Mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AngularSpringMVCMybatis.iml" filepath="$PROJECT_DIR$/AngularSpringMVCMybatis.iml" />
     </modules>
   </component>
 </project>

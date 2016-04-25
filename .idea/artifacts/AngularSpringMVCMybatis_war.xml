@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="Angular_SpringMVC_Mybatis:war">
+  <artifact type="war" name="AngularSpringMVCMybatis:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="AngularSpringmvcMybatis.war">
-      <element id="artifact" artifact-name="Angular_SpringMVC_Mybatis:war exploded" />
+      <element id="artifact" artifact-name="AngularSpringMVCMybatis:war exploded" />
     </root>
   </artifact>
 </component>
