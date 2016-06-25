@@ -26,6 +26,20 @@
 	<!-- 使用注解的包，包括子集 -->
 	<context:component-scan base-package="com.hin.controller" />
 
+
+    <!--*****************基于非注解的controller,没写视图，只看处理逻辑*******************-->
+    <bean name="/method" class="com.hin.controller.MultiController">
+        <property name="methodNameResolver">
+            <ref bean="paramMethodResolver"/>
+        </property>
+    </bean>
+    <!-- 配置参数名称解析器 -->
+    <bean id="paramMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+        <property name="paramName" value="a"/>
+    </bean>
+    <!--*****************基于非注解的controller,没写视图，只看处理逻辑*******************-->
+
+
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="cache" value="true"/>
         <property name="prefix" value=""/>

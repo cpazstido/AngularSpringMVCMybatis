@@ -17,6 +17,11 @@ import com.hin.service.UserService;
 @RequestMapping("/users")
 public class UserController {
 
+    public UserController(){
+        System.out.println("sssssssssssssss非线程安全，不要使用类变量ssssssssssss");
+    }
+
+
 	@Resource
 	private UserService userService;
 	
@@ -27,7 +32,7 @@ public class UserController {
 
     @RequestMapping(value = "/addUser/{userName}", method = RequestMethod.POST)
     public @ResponseBody void addUser(@PathVariable("userName") String userName) {
-    	userService.addUser(userName);
+        userService.addUser(userName);
     }
 
     @RequestMapping(value = "/removeUser/{userName}", method = RequestMethod.DELETE)

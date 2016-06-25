@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="Angular_SpringMVC_Mybatis" />
+        <module name="AngularSpringMVCMybatis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Angular_SpringMVC_Mybatis" target="1.5" />
+      <module name="AngularSpringMVCMybatis" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
