@@ -14,10 +14,10 @@ import org.springframework.context.ApplicationContextAware;
  * 3、BeanNameAware
  * 4、BeanFactoryAware
  * 5、ApplicationContextAware
- * 6、BeanPostProcessor  postProcessBeforeInitialization（）
+ * 6、BeanPostProcessor  postProcessBeforeInitialization（）       类必须实现接口才会回调
  * 7、InitializingBean   afterPropertiesSet（）
  * 8、init-method（）
- * 9、BeanPostProcessor   POSTProcessAfterInitialization（）
+ * 9、BeanPostProcessor   POSTProcessAfterInitialization（）       类必须实现接口才会回调
  * 10、DisposableBean    destroy（）
  * 11、destory-method()
  */
