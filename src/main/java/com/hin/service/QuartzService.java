@@ -8,10 +8,10 @@ import java.util.Date;
 
 @Component
 public class QuartzService {
-    @Scheduled(cron = "0/1 * *  * * ? ")
-    public void execute(){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-        System.out.println(simpleDateFormat.format(new Date()));
-    }
+//    @Scheduled(cron = "0/1 * *  * * ? ")
+//    public void execute(){
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//
+//        System.out.println(simpleDateFormat.format(new Date()));
+//    }
 }

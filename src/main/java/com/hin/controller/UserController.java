@@ -18,7 +18,7 @@ import com.hin.service.UserService;
 public class UserController {
 
     public UserController(){
-        System.out.println("sssssssssssssss非线程安全，不要使用类变量ssssssssssss");
+//        System.out.println("sssssssssssssss非线程安全，不要使用类变量ssssssssssss");
     }
 
 
