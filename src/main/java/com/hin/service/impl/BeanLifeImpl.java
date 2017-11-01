@@ -1,11 +1,18 @@
 package com.hin.service.impl;
 
+import com.hin.service.AService;
 import com.hin.service.BeanLife;
+import com.hin.service.BeanService;
+import com.hin.service.UserService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * Spring bean 生命周期
@@ -21,20 +28,36 @@ import org.springframework.context.ApplicationContextAware;
  * 10、DisposableBean    destroy（）
  * 11、destory-method()
  */
-
+@Service
 public class BeanLifeImpl implements
         BeanNameAware,
         BeanFactoryAware,
         ApplicationContextAware,
-//        BeanPostProcessor,
+        BeanPostProcessor,
         DisposableBean,
         InitializingBean,
         BeanLife{
     private String name;
     private int age;
 
-    BeanLifeImpl(){
-        System.out.println("constructor invoked!");
+
+    public String getName() {
+        return name;
+    }
+    //    @Resource
+//    private UserService userService;
+
+//    public UserService getUserService() {
+//        return userService;
+//    }
+//
+//    public void setUserService(UserService userService) {
+//        System.out.println("setUserService");
+//        this.userService = userService;
+//    }
+
+    public BeanLifeImpl(){
+        System.out.println("BeanLifeImpl constructor invoked!");
     }
 
     public void setName(String name) {
@@ -60,21 +83,21 @@ public class BeanLifeImpl implements
     }
 
     public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
-//        System.out.println("BeanPostProcessor postProcessBeforeInitialization(Object o, String s) "+s);
+        System.out.println("BeanPostProcessor postProcessBeforeInitialization(Object o, String s) "+s);
         return o;
     }
 
     public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
-//        System.out.println("BeanPostProcessor postProcessAfterInitialization(Object o, String s) " +s);
+        System.out.println("BeanPostProcessor postProcessAfterInitialization(Object o, String s) " +s);
         return o;
     }
 
     public void init(){
-        System.out.println("init invoked!");
+        System.out.println("init() invoked!");
     }
 
     public void destroy() throws Exception {
-        System.out.println("destroy()");
+        System.out.println("destroy() invoked!");
     }
 
     public void destroyMethod(){

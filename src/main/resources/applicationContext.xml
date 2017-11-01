@@ -16,82 +16,109 @@
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd  
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-    <task:annotation-driven/>
-    <!-- 自动扫描 -->
-	<context:component-scan base-package="com.hin.dao" />
-	<context:component-scan base-package="com.hin.service" />
-	
-	<!-- 配置数据源 -->
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<!--<property name="url" value="jdbc:mysql://localhost:3306/db_news"/>-->
-        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
-		<property name="username" value="root"/>
-		<property name="password" value="root"/>
-        <!--<property name="password" value="123456"/>-->
-	</bean>
+    <!--<task:annotation-driven/>-->
+    <!--&lt;!&ndash; 自动扫描 &ndash;&gt;-->
+	<!--<context:component-scan base-package="com.hin.dao" />-->
+	<!--<context:component-scan base-package="com.hin.service" />-->
+	<!---->
+	<!--&lt;!&ndash; 配置数据源 &ndash;&gt;-->
+	<!--<bean id="dataSource"-->
+		<!--class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+		<!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+		<!--&lt;!&ndash;<property name="url" value="jdbc:mysql://localhost:3306/db_news"/>&ndash;&gt;-->
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/test"/>-->
+		<!--<property name="username" value="root"/>-->
+		<!--<property name="password" value="root"/>-->
+        <!--&lt;!&ndash;<property name="password" value="123456"/>&ndash;&gt;-->
+	<!--</bean>-->
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="dataSource" />
+    <!--<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+        <!--<property name="dataSource" ref="dataSource" />-->
+    <!--</bean>-->
+
+	<!--&lt;!&ndash; 配置mybatis的sqlSessionFactory &ndash;&gt;-->
+	<!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+		<!--<property name="dataSource" ref="dataSource" />-->
+		<!--&lt;!&ndash; 自动扫描mappers.xml文件 ，要加上classpath:com/...&ndash;&gt;-->
+		<!--<property name="mapperLocations" value="classpath:*Mapper.xml"></property>-->
+		<!--&lt;!&ndash; mybatis配置文件 &ndash;&gt;-->
+		<!--<property name="configLocation" value="classpath:mybatis-config.xml"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; DAO接口所在包名，Spring会自动查找其下的类 &ndash;&gt;-->
+	<!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+		<!--<property name="basePackage" value="com.hin.dao" />-->
+		<!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; (事务管理)transaction manager, use JtaTransactionManager for global tx &ndash;&gt;-->
+	<!--<bean id="transactionManager"-->
+		<!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+		<!--<property name="dataSource" ref="dataSource" />-->
+	<!--</bean>-->
+	<!---->
+	<!--&lt;!&ndash; 配置事务通知属性 &ndash;&gt;  -->
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">  -->
+        <!--&lt;!&ndash; 定义事务传播属性 &ndash;&gt;  -->
+        <!--<tx:attributes>  -->
+            <!--<tx:method name="insert*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="update*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="edit*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="save*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="add*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="new*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="set*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="remove*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="delete*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="change*" propagation="REQUIRED" />  -->
+            <!--<tx:method name="get*" propagation="REQUIRED" read-only="true" />  -->
+            <!--<tx:method name="find*" propagation="REQUIRED" read-only="true" />  -->
+            <!--<tx:method name="load*" propagation="REQUIRED" read-only="true" />  -->
+            <!--<tx:method name="*" propagation="REQUIRED" read-only="true" />  -->
+        <!--</tx:attributes>  -->
+    <!--</tx:advice>  -->
+  <!---->
+    <!--&lt;!&ndash; 配置事务切面 &ndash;&gt;  -->
+    <!--<aop:config>  -->
+        <!--<aop:pointcut id="serviceOperation"  -->
+            <!--expression="execution(* com.hin.service.*.*(..))" />  -->
+        <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />  -->
+    <!--</aop:config>-->
+
+    <!--&lt;!&ndash;<bean id="beanLife" class="com.hin.service.impl.BeanLifeImpl" init-method="init" destroy-method="destroyMethod">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="name" value="cf" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="age" value="28" />&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+
+    <!--<bean id="beanLife1" class="com.hin.service.BeanLife1">-->
+
+    <!--</bean>-->
+
+
+    <!--<bean id="beanService" class="com.hin.service.impl.BeanServiceImpl">-->
+        <!--<property name="aa" value="aaaaaaa" />-->
+    <!--</bean>-->
+
+    <bean id="aService" class="com.hin.service.impl.AServiceImpl" scope="prototype">
+        <property name="bService" ref="bService"/>
     </bean>
 
-	<!-- 配置mybatis的sqlSessionFactory -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<!-- 自动扫描mappers.xml文件 ，要加上classpath:com/...-->
-		<property name="mapperLocations" value="classpath:*Mapper.xml"></property>
-		<!-- mybatis配置文件 -->
-		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
-	</bean>
+    <bean id="bService" class="com.hin.service.impl.BServiceImpl"  scope="prototype">
+        <property name="aService" ref="aService"/>
+    </bean>
 
-	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.hin.dao" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-	</bean>
-
-	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-	
-	<!-- 配置事务通知属性 -->  
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">  
-        <!-- 定义事务传播属性 -->  
-        <tx:attributes>  
-            <tx:method name="insert*" propagation="REQUIRED" />  
-            <tx:method name="update*" propagation="REQUIRED" />  
-            <tx:method name="edit*" propagation="REQUIRED" />  
-            <tx:method name="save*" propagation="REQUIRED" />  
-            <tx:method name="add*" propagation="REQUIRED" />  
-            <tx:method name="new*" propagation="REQUIRED" />  
-            <tx:method name="set*" propagation="REQUIRED" />  
-            <tx:method name="remove*" propagation="REQUIRED" />  
-            <tx:method name="delete*" propagation="REQUIRED" />  
-            <tx:method name="change*" propagation="REQUIRED" />  
-            <tx:method name="get*" propagation="REQUIRED" read-only="true" />  
-            <tx:method name="find*" propagation="REQUIRED" read-only="true" />  
-            <tx:method name="load*" propagation="REQUIRED" read-only="true" />  
-            <tx:method name="*" propagation="REQUIRED" read-only="true" />  
-        </tx:attributes>  
-    </tx:advice>  
-  
-    <!-- 配置事务切面 -->  
-    <aop:config>  
-        <aop:pointcut id="serviceOperation"  
-            expression="execution(* com.hin.service.*.*(..))" />  
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />  
-    </aop:config>
+    <!--<bean id="cService" class="com.hin.service.impl.CServiceImpl"  scope="prototype">-->
+        <!--<property name="aService" ref="aService"/>-->
+    <!--</bean>-->
 
     <bean id="beanLife" class="com.hin.service.impl.BeanLifeImpl" init-method="init" destroy-method="destroyMethod">
-        <property name="name" value="cf" />
-        <property name="age" value="28" />
+        <property name="age" value="28"/>
+        <property name="name" value="cf"/>
     </bean>
 
-    <bean id="beanLife1" class="com.hin.service.BeanLife1">
-
+    <bean id="beanFacotryPostProcessor" class="com.hin.controller.BeanFactoryUtils">
     </bean>
+
+    <bean id="startExecuteListener" class="com.hin.listener.StartExecuteListener"></bean>
 
 </beans>
