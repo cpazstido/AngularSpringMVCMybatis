@@ -10,7 +10,7 @@ import com.hin.dao.UserDao;
 import com.hin.entity.User;
 import com.hin.service.UserService;
 
-@Service("userService")
+//@Service("userService")
 public class UserServiceImpl implements UserService{
 
 	//public List<User> userList = getAllUsers();

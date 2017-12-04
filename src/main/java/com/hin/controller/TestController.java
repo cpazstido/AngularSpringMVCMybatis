@@ -10,7 +10,7 @@ import javax.annotation.Resource;
  * 事务测试
  */
 
-@Controller
+//@Controller
 public class TestController {
     @Resource
     private TestService testService;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-@Service("testService")
+//@Service("testService")
 public class TestServiceImpl<T> implements TestService {
     private Class<T> clazz;
 

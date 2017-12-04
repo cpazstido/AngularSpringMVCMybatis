@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hin.entity.User;
 import com.hin.service.UserService;
 
-@Controller
-@RequestMapping("/users")
+//@Controller
+//@RequestMapping("/users")
 public class UserController {
 
     public UserController(){
