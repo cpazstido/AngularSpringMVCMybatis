@@ -15,8 +15,16 @@ public class BatisAccountDao {
         }
     }
 
+    public AccountDO getAccountByIdInterface(String id){
+        SqlSession session = MySqlSession.newSqlSession();
+        IAccountMapper accountMapper = session.getMapper(IAccountMapper.class);
+        AccountDO accountDO = accountMapper.getAccount(id);
+        return accountDO;
+    }
+
     public static void main(String[] args) {
         BatisAccountDao batisAccountDao = new BatisAccountDao();
-        batisAccountDao.getAccountById("1");
+        //batisAccountDao.getAccountById("1");
+        batisAccountDao.getAccountByIdInterface("1");
     }
 }
