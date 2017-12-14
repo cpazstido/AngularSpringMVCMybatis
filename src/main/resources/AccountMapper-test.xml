@@ -12,10 +12,9 @@
     </resultMap>
 
     <select id="getAccount" parameterType="String" resultType="com.hin.entity.AccountDO" resultMap="accountResultMap">
-        <![CDATA[
+
             SELECT * from account a
                 WHERE a.id = #{id}
-        ]]>
     </select>
 
 </mapper>
