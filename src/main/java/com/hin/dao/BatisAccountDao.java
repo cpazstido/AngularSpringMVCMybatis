@@ -24,7 +24,7 @@ public class BatisAccountDao {
 
     public static void main(String[] args) {
         BatisAccountDao batisAccountDao = new BatisAccountDao();
-        batisAccountDao.getAccountById("1");
-//        batisAccountDao.getAccountByIdInterface("1");
+//        batisAccountDao.getAccountById("1");
+        batisAccountDao.getAccountByIdInterface("1");
     }
 }

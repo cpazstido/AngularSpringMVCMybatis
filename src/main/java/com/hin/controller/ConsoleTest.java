@@ -6,7 +6,7 @@ import java.io.*;
 
 public class ConsoleTest {
     public static void main(String[] args) throws Exception {
-        changeFileEncoding("D:\\project\\guizhou\\Merchants\\hotel");
+        changeFileEncoding("D:\\project\\eclipse\\Agritainment");
     }
 
     public static void changeFileEncoding(String path) throws Exception{

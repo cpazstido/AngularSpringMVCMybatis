@@ -3,6 +3,7 @@ package com.hin.service.impl;
 import com.hin.service.AService;
 import com.hin.service.BeanLife;
 import com.hin.service.BeanService;
+import com.hin.service.MyService;
 import com.hin.service.UserService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
@@ -28,15 +29,15 @@ import javax.annotation.Resource;
  * 10、DisposableBean    destroy（）
  * 11、destory-method()
  */
-@Service
+//@Service
 public class BeanLifeImpl implements
         BeanNameAware,
         BeanFactoryAware,
         ApplicationContextAware,
-        BeanPostProcessor,
+//        BeanPostProcessor,
         DisposableBean,
         InitializingBean,
-        BeanLife{
+        BeanLife {
     private String name;
     private int age;
 
@@ -44,63 +45,64 @@ public class BeanLifeImpl implements
     public String getName() {
         return name;
     }
-    //    @Resource
-//    private UserService userService;
 
-//    public UserService getUserService() {
-//        return userService;
-//    }
-//
-//    public void setUserService(UserService userService) {
-//        System.out.println("setUserService");
-//        this.userService = userService;
-//    }
+    @Resource
+    private MyService myService;
 
-    public BeanLifeImpl(){
+    public MyService getMyService() {
+        return myService;
+    }
+
+    public void setMyService(MyService myService) {
+        System.out.println("setMyService");
+        this.myService = myService;
+    }
+
+    public BeanLifeImpl() {
         System.out.println("BeanLifeImpl constructor invoked!");
     }
 
     public void setName(String name) {
-        System.out.println("setter invoked! "+name);
+        System.out.println("setter invoked! " + name);
         this.name = name;
     }
 
     public void setAge(int age) {
-        System.out.println("setter invoked! "+age);
+        System.out.println("setter invoked! " + age);
         this.age = age;
     }
 
     public void setBeanName(String s) {
-        System.out.println("BeanNameAware setBeanName(String beanId) "+s);
+        System.out.println("BeanNameAware setBeanName(String beanId) " + s);
     }
 
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("BeanFactoryAware setBeanFactory(BeanFactory beanFactory) "+beanFactory);
+        System.out.println("BeanFactoryAware setBeanFactory(BeanFactory beanFactory) " + beanFactory);
     }
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("ApplicationContextAware setApplicationContext(ApplicationContext) "+applicationContext);
+        System.out.println("ApplicationContextAware setApplicationContext(ApplicationContext) " + applicationContext);
     }
 
     public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
-        System.out.println("BeanPostProcessor postProcessBeforeInitialization(Object o, String s) "+s);
+        System.out.println("BeanPostProcessor postProcessBeforeInitialization(Object o, String s) " + s);
         return o;
     }
 
     public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
-        System.out.println("BeanPostProcessor postProcessAfterInitialization(Object o, String s) " +s);
+        System.out.println("BeanPostProcessor postProcessAfterInitialization(Object o, String s) " + s);
         return o;
     }
 
-    public void init(){
-        System.out.println("init() invoked!");
+    public void init() {
+        System.out.println("initMethod invoked!");
     }
 
     public void destroy() throws Exception {
-        System.out.println("destroy() invoked!");
+        System.out.println("DisposableBean destroy() invoked!");
     }
 
-    public void destroyMethod(){
+    public void destroyMethod() {
         System.out.println("destroyMethod invoked!");
     }
 

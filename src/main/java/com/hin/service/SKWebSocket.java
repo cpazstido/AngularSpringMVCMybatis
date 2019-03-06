@@ -63,32 +63,32 @@ public class SKWebSocket {
 	
 	
 	public void sendMessageToJsp(String message, String sId) throws IOException {
-		ThreadPoolManager threadPool = ThreadPoolManager.getInstance();
-		String[] str = sId.split(",");
-	    List<String> list = java.util.Arrays.asList(str);
-		Iterator<Entry<String, Session>> it = concurrentMap.entrySet().iterator();
-		while (it.hasNext()) {
-			final Entry<String, Session> entry = it.next();
-			Session session = entry.getValue();
-			String k = entry.getKey();
-			boolean falg = false;
-			if(list.indexOf(k)!=-1){
-				falg = true;
-			}
-			if (session.isOpen() && falg==true) {
-				threadPool.addExecuteTask(new Runnable() {
-					@Override
-					public void run() {
-						try {
-							session.getBasicRemote().sendText(message);
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-
-					}
-				});
-			}
-		}
+//		ThreadPoolManager threadPool = ThreadPoolManager.getInstance();
+//		String[] str = sId.split(",");
+//	    List<String> list = java.util.Arrays.asList(str);
+//		Iterator<Entry<String, Session>> it = concurrentMap.entrySet().iterator();
+//		while (it.hasNext()) {
+//			final Entry<String, Session> entry = it.next();
+//			Session session = entry.getValue();
+//			String k = entry.getKey();
+//			boolean falg = false;
+//			if(list.indexOf(k)!=-1){
+//				falg = true;
+//			}
+//			if (session.isOpen() && falg==true) {
+//				threadPool.addExecuteTask(new Runnable() {
+//					@Override
+//					public void run() {
+//						try {
+//							session.getBasicRemote().sendText(message);
+//						} catch (Exception e) {
+//							e.printStackTrace();
+//						}
+//
+//					}
+//				});
+//			}
+//		}
 //		threadPool.shutdown();
 	}
 }

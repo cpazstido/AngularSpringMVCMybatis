@@ -111,9 +111,12 @@
         <!--<property name="aService" ref="aService"/>-->
     <!--</bean>-->
 
+    <!--<bean id="myService" class="com.hin.service.impl.MyServiceImpl"/>-->
+
     <bean id="beanLife" class="com.hin.service.impl.BeanLifeImpl" init-method="init" destroy-method="destroyMethod">
         <property name="age" value="28"/>
         <property name="name" value="cf"/>
+        <!--<property name="myService" ref="myService" />-->
     </bean>
 
     <bean id="beanFacotryPostProcessor" class="com.hin.controller.BeanFactoryUtils">

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service("testService11111111")
 public class ServiceTestImpl implements ServiceTest
-//        ,BeanPostProcessor
+        ,BeanPostProcessor
 {
     public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
         System.out.println("postProcessBeforeInitialization "+s);

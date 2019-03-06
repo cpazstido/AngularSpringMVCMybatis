@@ -7,9 +7,9 @@ import com.hin.entity.User;
 public interface UserService {
 
 	public User login(User user);
-	
+
 	public User getUserById(int id);
-	
+
 	public List<User> getAllUsers();
 
     public void addUser(String userName);
